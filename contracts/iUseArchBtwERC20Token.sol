@@ -8,7 +8,7 @@ contract iUseArchBtwERC20Token is IERC20 {
     mapping(address => uint) public balanceOf;
     mapping(address => mapping(address => uint)) public allowance;
     string public name = "Solidity by Example";
-    string public symbol = "SOLBYEX";
+    string public symbol = "IUAB";
     uint8 public decimals = 18;
 
     function transfer(address recipient, uint amount) external returns (bool) {
