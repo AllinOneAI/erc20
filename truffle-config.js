@@ -10,13 +10,13 @@ module.exports = {
       network_id: "*",       // Any network (default: none)
      },
 
-     goerli: {
-      network_id: "5",
-      gasPrice: 10,
+   goerli: {
+     network_id: "5",
+      //gasPrice: 10,
       provider: new HDWalletProvider({
         mnemonic: Mnemonic,
-        providerOrUrl: "https://goerli.infura.io/v3/67d27f10fa6d4dcdb7575f9ee8df4f5c",
-        numberOfAddresses: 1
+       providerOrUrl: "https://goerli.infura.io/v3/67d27f10fa6d4dcdb7575f9ee8df4f5c",
+
       })
     } 
       
@@ -27,7 +27,7 @@ module.exports = {
 
   compilers: {
     solc: {
-      version: "0.8.16",      // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.17",      // Fetch exact version from solc-bin (default: truffle's version)
     }
   },
 

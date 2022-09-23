@@ -1,24 +1,29 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.16;
 
 import "./IERC20.sol";
 
 contract iUseArchBtwERC20Token is IERC20 {
-    uint public totalSupply;
-    mapping(address => uint) public balanceOf;
-    mapping(address => mapping(address => uint)) public allowance;
-    string public name = "Solidity by Example";
+    uint256 public totalSupply;
+    mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
+    string public name = "I Use Arch Btw Token";
     string public symbol = "IUAB";
-    uint8 public decimals = 18;
+    uint256 public decimals = 18;
 
-    function transfer(address recipient, uint amount) external returns (bool) {
+constructor() {
+    totalSupply = 1000 ** decimals;
+    balanceOf[msg.sender] = totalSupply;
+}
+
+    function transfer(address recipient, uint256 amount) external returns (bool) {
         balanceOf[msg.sender] -= amount;
         balanceOf[recipient] += amount;
         emit Transfer(msg.sender, recipient, amount);
         return true;
     }
 
-    function approve(address spender, uint amount) external returns (bool) {
+    function approve(address spender, uint256 amount) external returns (bool) {
         allowance[msg.sender][spender] = amount;
         emit Approval(msg.sender, spender, amount);
         return true;
@@ -27,7 +32,7 @@ contract iUseArchBtwERC20Token is IERC20 {
     function transferFrom(
         address sender,
         address recipient,
-        uint amount
+        uint256 amount
     ) external returns (bool) {
         allowance[sender][msg.sender] -= amount;
         balanceOf[sender] -= amount;
@@ -36,13 +41,13 @@ contract iUseArchBtwERC20Token is IERC20 {
         return true;
     }
 
-    function mint(uint amount) external {
+    function mint(uint256 amount) external {
         balanceOf[msg.sender] += amount;
         totalSupply += amount;
         emit Transfer(address(0), msg.sender, amount);
     }
 
-    function burn(uint amount) external {
+    function burn(uint256 amount) external {
         balanceOf[msg.sender] -= amount;
         totalSupply -= amount;
         emit Transfer(msg.sender, address(0), amount);
