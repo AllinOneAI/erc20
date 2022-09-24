@@ -12,7 +12,7 @@ contract iUseArchBtwERC20Token is IERC20 {
     uint256 public decimals = 18;
 
 constructor() {
-    totalSupply = 1000 ** decimals;
+    totalSupply = 1000 * (10 ** decimals);
     balanceOf[msg.sender] = totalSupply;
 }
 
