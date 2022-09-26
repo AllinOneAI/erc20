@@ -11,8 +11,8 @@ contract iUseArchBtwERC20Token is IERC20 {
     string public symbol = "IUAB";
     uint256 public decimals = 18;
 
-constructor() {
-    totalSupply = 1000 * (10 ** decimals);
+constructor(uint256 _totalSupply) {
+    totalSupply = _totalSupply * (10 ** decimals);
     balanceOf[msg.sender] = totalSupply;
 }
 
